@@ -15,7 +15,7 @@
         @foreach($todos as $index => $todo)
             <div class="flex gap-4 justify-between items-center py-1">
                 <input type="checkbox" {{$todo->completed ? ' checked' : ''}} wire:change="toggleTodo({{$todo->id}})">
-                <label class="flex-1 {{$todo->completed ? 'line-through' : ''}}">{{$todo->todo}}</label>
+                <label class="flex-1 {{$todo->completed ? 'line-through text-blue-500' : ''}}">{{$todo->todo}}</label>
                 <button wire:click="deleteTodo({{$todo->id}})">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor" stroke-width="2">

@@ -28,18 +28,21 @@ class RegisterForm extends Component
         $this->validate();
 
         //register customer
-        session()->flash('message','Customer was created');
+        session()->flash('message', $this->role.' was created');
 
-        $this->email="";
-        $this->password="";
-        $this->first_name="";
-        $this->last_name="";
-        $this->role="customer";
-        $this->company_name="";
-        $this->vat_number="";
+        $this->reset('email','password','first_name','last_name','role','company_name','vat_number');
+        // $this->email="";
+        // $this->password="";
+        // $this->first_name="";
+        // $this->last_name="";
+        // $this->role="costumer";
+        // $this->company_name="";
+        // $this->vat_number="";
     }
 
+    //herhangi bir özellik güncellendiğinde tetiklenen bir metodu tanımlar. $property parametresi, güncellenen özelliğin adını temsil eder. updated özelliği, bir bileşenin herhangi bir özelliği güncellendiğinde otomatik olarak çağrılır.
     public function updated($property){
+    //validateOnly yöntemi, yalnızca belirtilen özelliği doğrulamak için kullanılır. Yani, bu metot, yalnızca güncellenen belirli bir özelliği doğrular ve diğer tüm doğrulama kurallarını atlar. Bu şekilde, kullanıcı yalnızca güncellenen özelliği etkilediğinde doğrulama gerçekleştirilir, böylece performans artırılır ve kullanıcı deneyimi iyileştirilir.
         $this->validateOnly($property);
     }
 

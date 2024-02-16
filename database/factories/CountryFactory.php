@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Continent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Continent>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Country>
  */
-class ContinentFactory extends Factory
+class CountryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +18,9 @@ class ContinentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(20)
+            'name' => fake()->country,
+            'continent_id' => fake()->numberBetween(1,Continent::count()),
+            
         ];
     }
 }

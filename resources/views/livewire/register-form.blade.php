@@ -1,5 +1,5 @@
-<form wire:submit.prevent="submit" class="w-80 mx-auto py-16 mt-32 shadow-sm">
-    <span class="tracking-widest font-mono underline decoration-blue-400 underline-offset-4 decoration-4 font-semibold text-gray-700 items-center ">Register Form</span>
+<form wire:submit.prevent="submit" class="w-80 mx-auto py-16 mt-32">
+    <span class="mt-8 tracking-widest font-mono underline decoration-blue-400 underline-offset-4 decoration-4 font-semibold text-gray-700">Register Form</span>
 
     @if (session()->has('message'))
         <div class="bg-emerald-500 rounded-sm text-white font-semibold py-3 px-4 mb-4">
@@ -7,13 +7,13 @@
         </div>
     @endif
 
-    <div class="flex gap-4 mb-4">
+    <div class="flex gap-4 mb-8 mt-8">
         <label>
-            <input type="radio" value="customer" name="role" wire:model="role">
+            <input type="radio" value="customer" name="role" wire:model.live="role">
             Customer
         </label>
         <label>
-            <input type="radio" value="vendor" name="role" wire:model="role">
+            <input type="radio" value="vendor" name="role" wire:model.live="role">
             Vendor
         </label>
     </div>
@@ -49,7 +49,7 @@
     @if ($role === 'vendor')
         <div class="mb-4">
             <input type="text" wire:model.debounce.500ms="company_name"
-                   class="w-full border
+                   class="w-full border rounded-md
             @error('company_name') border-red-500 @enderror" 
                    placeholder="Company Name">
             @error('company_name') <span class="text-red-500">{{ $message }}</span> @enderror
