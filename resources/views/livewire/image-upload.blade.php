@@ -8,7 +8,7 @@
                 @endforeach
             </div>
         @endif
-
+        <h1 class="text-center -mt-4 mb-8 font-extrabold text-blue-600 font-mono text-2xl">Image Uploading</h1>
         <input type="file" wire:model="image" class="mb-4" multiple>
 
         @error('image') <span class="error">{{ $message }}</span>@enderror

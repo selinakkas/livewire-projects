@@ -1,6 +1,6 @@
 <div>
-    <div class="flex flex-col gap-6 w-[480px] mx-auto py-16">
-        <select wire:model="selectedContinent" wire:change="changeContinent">
+    <div class="flex flex-col gap-6 w-[480px] mx-auto py-16 border bg-gray-50 mt-16 rounded-md shadow-sm">
+        <select wire:model="selectedContinent" class="flex-1 py-2 mr-4 ml-4 rounded" wire:change="changeContinent">
             <option value="-1">Please select continent</option>
             @foreach ($continents as $continent )
                 <option value="{{$continent->id}}">{{$continent->name}}</option>
@@ -12,7 +12,7 @@
             Loading...
         </p>
 
-        <select wire:model="selectedCountry" class="flex-1">
+        <select wire:model="selectedCountry" class="flex-1 py-2 mr-4 ml-4 rounded">
             <option value="-1">Please select country</option>
             @foreach ($countries as $country)
                 <option value="{{$country->id}}">{{$country->name}}</option>
